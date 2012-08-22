@@ -1,1 +1,0 @@
-[cloud](http://weibo.com/ "weibo")
