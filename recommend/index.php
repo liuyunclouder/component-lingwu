@@ -1,3 +1,4 @@
 <?php
-    include $page.'/readme.md'; 
+    include $page.'/demo/demo.php';
+    include $page.'/readme.md';
 ?>
