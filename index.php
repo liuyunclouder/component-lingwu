@@ -1,11 +1,15 @@
 <?php 
     header('Content-type: text/html; charset=gbk');
 
+    $path = dirname(__FILE__);
+
     $KISSYNum = '1.2.0';
+    // $toolPath = $path.'/tool';
+    // var_dump($toolPath);
+
     $page = $_GET['page'];
     $allowed_array = array();
 // 输出目录
-    $path = dirname(__FILE__);
     $filter_array = array('.git', 'tool');
     $handle = opendir($path);
     $htmlStr = '<ul class="nav-list">';
