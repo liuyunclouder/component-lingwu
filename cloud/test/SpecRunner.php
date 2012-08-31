@@ -7,21 +7,37 @@
 <!--   <link rel="shortcut icon" type="image/png" href="../jasmine_favicon.png"> -->
   <?php 
       // $cur_path = dirname(__FILE__);
-      $tool_path = $cur_path.'../../tool';
-      $src_path = $cur_path.'../src';
+      $tool_path = '../../tool';
+      $src_path = '../src';
    ?>
 
-  <link rel="stylesheet" type="text/css" href="../../jasmine.css">
-  <script type="text/javascript" src="../../jasmine.js"></script>
-  <script type="text/javascript" src="../../jasmine-html.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo $tool_path ?>/jasmine/jasmine.css">
+  <script type="text/javascript" src="<?php echo $tool_path ?>/jasmine/jasmine.js"></script>
+  <script type="text/javascript" src="<?php echo $tool_path ?>/jasmine/jasmine-html.js"></script>
 
   <!-- include spec files here... -->
-  <script type="text/javascript" src="spec/SpecHelper.js"></script>
-  <script type="text/javascript" src="spec/PlayerSpec.js"></script>
+  <script type="text/javascript" src="SpecHelper.js"></script>
+  <script type="text/javascript" src="PlayerSpec.js"></script>
 
   <!-- include source files here... -->
-  <script type="text/javascript" src="<?php echo $src_path ?>/Player.js"></script>
-  <script type="text/javascript" src="<?php echo $src_path ?>/Song.js"></script>
+
+  <?php 
+      $path = dirname(__FILE__).'/../src';
+      $handle = opendir($path);
+      $scriptStr = '';
+
+      while ($file = readdir($handle)) {
+        if ($file != '.' && $file != '..') {
+            $arr = explode('.', $file);
+            if ($arr[1] == 'js') {
+              $scriptStr .= "<script type=\"text/javascript\" src=\"$src_path/$file\"></script>";
+            }
+        }
+      }
+      echo $scriptStr;
+   ?>
+
+
 
   <script type="text/javascript">
     (function() {
@@ -55,5 +71,6 @@
 </head>
 
 <body>
+
 </body>
 </html>
