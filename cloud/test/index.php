@@ -7,8 +7,9 @@
 <!--   <link rel="shortcut icon" type="image/png" href="../jasmine_favicon.png"> -->
   <?php 
       // $cur_path = dirname(__FILE__);
-      $tool_path = '../../tool';
-      $src_path = '../src';
+      $tool_path = "tool";
+      $src_path = "$page/src";
+      $spec_path = "$page/test";
    ?>
 
   <link rel="stylesheet" type="text/css" href="<?php echo $tool_path ?>/jasmine/jasmine.css">
@@ -16,14 +17,14 @@
   <script type="text/javascript" src="<?php echo $tool_path ?>/jasmine/jasmine-html.js"></script>
 
   <!-- include spec files here... -->
-  <script type="text/javascript" src="SpecHelper.js"></script>
-  <script type="text/javascript" src="PlayerSpec.js"></script>
+  <script type="text/javascript" src="<?php echo $spec_path ?>/SpecHelper.js"></script>
+  <script type="text/javascript" src="<?php echo $spec_path ?>/PlayerSpec.js"></script>
 
   <!-- include source files here... -->
 
   <?php 
-      $path = dirname(__FILE__).'/../src';
-      $handle = opendir($path);
+      $test_path = dirname(__FILE__).'/../src';
+      $handle = opendir($test_path);
       $scriptStr = '';
 
       while ($file = readdir($handle)) {

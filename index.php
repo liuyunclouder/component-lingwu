@@ -8,6 +8,7 @@
     // var_dump($toolPath);
 
     $page = $_GET['page'];
+    $test = $_GET['test'];
     $allowed_array = array();
 // 输出目录
     $filter_array = array('.git', 'tool');
@@ -30,7 +31,13 @@
 
 // 引用相关文件
     if (isset($page) && in_array($page, $allowed_array)) {
-    	include "$page/index.php";
+        $fileSrc = '';
+        if (isset($test)) {
+            $fileSrc = "$page/test/index.php";
+        } else {
+            $fileSrc = "$page/index.php";
+        }
+    	include $fileSrc;
     } else {
     	include 'readme.md';
     }
