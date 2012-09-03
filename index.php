@@ -16,6 +16,11 @@
     #C-content {
         margin-left: 160px;
     }
+    #C-markdown {
+        padding-top: 20px;
+        margin-top: 10px;
+        border-top: 2px solid #000;
+    }
 
 </style>
 <script type="text/javascript" src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
