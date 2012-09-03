@@ -4,6 +4,6 @@
 		// echo "$page";
 	}
 	
-	include $page.'/demo/demo.php';
+	include $page.'/demo/index.php';
     include $page.'/readme.md'; 
 ?>

@@ -3,15 +3,21 @@
 <html>
 <head>
   <title>Jasmine Spec Runner</title>
-
 <!--   <link rel="shortcut icon" type="image/png" href="../jasmine_favicon.png"> -->
   <?php 
-      // $cur_path = dirname(__FILE__);
+    //在首页带参数test时直接展示测试结果
+    if (isset($page)) {
       $tool_path = "tool";
       $src_path = "$page/src";
       $spec_path = "$page/test";
+    //通过路径进入时展示测试结果
+    } else {
+      $tool_path = "../../tool";
+      $src_path = "../src";
+      $spec_path = "../test";
+    }
+      
    ?>
-
   <link rel="stylesheet" type="text/css" href="<?php echo $tool_path ?>/jasmine/jasmine.css">
   <script type="text/javascript" src="<?php echo $tool_path ?>/jasmine/jasmine.js"></script>
   <script type="text/javascript" src="<?php echo $tool_path ?>/jasmine/jasmine-html.js"></script>
