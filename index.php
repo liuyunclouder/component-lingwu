@@ -3,15 +3,18 @@
     include_once 'tool/markdown/markdown.php';
  ?>
 
-<link href="http://a.tbcdn.cn/s/kissy/1.2.0/cssreset/reset-min.css" rel="stylesheet"/>
+<!-- <link href="http://a.tbcdn.cn/s/kissy/1.2.0/cssreset/reset-min.css" rel="stylesheet"/> -->
+<link rel="stylesheet" href="tool/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="http://ux.etao.net/webgit/css/markdown.css">
 <style type="text/css">
-    #C-nav {
+    /*#C-nav {
         width: 160px;
         float: left;
     }
     #C-nav-list { 
         padding-right: 20px;     
         text-align: right;
+        list-style: none;
     }
     #C-content {
         margin-left: 160px;
@@ -20,7 +23,30 @@
         padding-top: 20px;
         margin-top: 10px;
         border-top: 2px solid #000;
+    }*/
+
+    /*布局样式修正*/
+    #C-nav-list {      
+        text-align: right;
+        list-style: none;
     }
+
+    #C-markdown {
+        padding-top: 20px;
+        margin-top: 10px;
+        border-top: 2px solid #000;
+    }
+
+
+    /*jasmine 样式修正*/
+    #TrivialReporter label {
+        display: inline;
+    }
+
+    #TrivialReporter input {
+        margin-top: 0px;
+    }
+
 
 </style>
 <script type="text/javascript" src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
@@ -35,10 +61,11 @@
 
     $allowed_array = array();
 
+    echo '<div class="container-fluid"><div class="row-fluid">';
 // 输出目录
     $filter_array = array('.git', 'tool');
     $handle = opendir($path);
-    $htmlStr = '<div id="C-nav"><ul id="C-nav-list">';
+    $htmlStr = '<div id="C-nav" class="span1"><ul id="C-nav-list">';
     
     while ($file = readdir($handle)) {
         if ($file != '.' && $file != '..') {
@@ -52,7 +79,7 @@
     $htmlStr .= '</ul></div>';
     echo $htmlStr;
 
-    echo "<div id=\"C-content\">";
+    echo '<div id="C-content" class="span11">';
 // 引用相关文件
     if (isset($page) && in_array($page, $allowed_array)) {
         $fileSrc = '';
@@ -68,6 +95,7 @@
    
    echo "</div>"; 
 
+   echo '</div></div>';
 
 ?>
 
